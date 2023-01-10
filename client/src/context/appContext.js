@@ -33,6 +33,14 @@ const initialState = {
   userLocation: userLocation || '',
 
   showSidebar: false,
+
+  isEditing: false,
+  editBar: '',
+  name: '',
+  location: '',
+  address: '',
+  phoneNumber: '',
+  notes: '',
 };
 
 const AppContext = React.createContext();
