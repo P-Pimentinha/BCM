@@ -1,5 +1,16 @@
+import { StatusCodes } from 'http-status-codes';
+import Bar from '../models/Bars.js';
+import { BadRequestError, NotFoundError } from '../errors/index.js';
+
 const createBar = async (req, res) => {
-  res.send('createJob');
+  const { name } = req.body;
+
+  if (!name) {
+    throw new BadRequestError('Please Provide All Values!');
+  }
+
+  const bar = await Bar.create(req.body);
+  res.status(StatusCodes.CREATED).json({ bar });
 };
 
 const deleteBar = async (req, res) => {

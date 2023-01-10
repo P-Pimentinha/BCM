@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const UserSchema = new mongoose.Schema({
+const BarSchema = new mongoose.Schema({
   name: {
     type: String,
     required: [true, 'Please provide name'],
@@ -23,13 +23,12 @@ const UserSchema = new mongoose.Schema({
   },
   phonenumber: {
     type: String,
-    required: [true, 'Please provide email'],
     minlength: 3,
     maxlength: 50,
     trim: true,
     default: 'no value',
   },
-  Notes: {
+  notes: {
     type: String,
     minlength: 3,
     maxlength: 250,
@@ -38,4 +37,4 @@ const UserSchema = new mongoose.Schema({
   },
 });
 
-export default mongoose.model('Bar', UserSchema);
+export default mongoose.model('Bar', BarSchema);
