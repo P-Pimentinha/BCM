@@ -16,6 +16,11 @@ import {
   UPDATE_USER_BEGIN,
   UPDATE_USER_SUCCESS,
   UPDATE_USER_ERROR,
+  HANDLE_CHANGE,
+  CLEAR_VALUES,
+  CREATE_BAR_BEGIN,
+  CREATE_BAR_SUCCESS,
+  CREATE_BAR_ERROR,
 } from './action';
 
 const user = localStorage.getItem('user');
@@ -174,6 +179,41 @@ const AppProvider = ({ children }) => {
     clearAlert();
   };
 
+  const handleChange = ({ name, value }) => {
+    dispatch({ type: HANDLE_CHANGE, payload: { name, value } });
+  };
+
+  const clearValues = () => {
+    dispatch({ type: CLEAR_VALUES });
+  };
+
+  const createBar = async () => {
+    dispatch({ type: CREATE_BAR_BEGIN });
+    try {
+      const { name, location, address, phoneNumber, notes } = state;
+
+      await authFetch.post('/bars', {
+        name,
+        location,
+        address,
+        phoneNumber,
+        notes,
+      });
+      dispatch({
+        type: CREATE_BAR_SUCCESS,
+      });
+      // call function instead clearValues()
+      dispatch({ type: CLEAR_VALUES });
+    } catch (error) {
+      if (error.response.status === 401) return;
+      dispatch({
+        type: CREATE_BAR_ERROR,
+        payload: { msg: error.response.data.msg },
+      });
+    }
+    clearAlert();
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -182,8 +222,11 @@ const AppProvider = ({ children }) => {
         registerUser,
         loginUser,
         toggleSidebar,
+        clearValues,
         logoutUser,
+        handleChange,
         updateUser,
+        createBar,
       }}
     >
       {children}

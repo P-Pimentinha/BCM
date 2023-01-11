@@ -5,6 +5,7 @@ import Wrapper from '../../assets/wrappers/DashboardFormPage';
 
 const AddBar = () => {
   const {
+    isLoading,
     showAlert,
     isEditing,
     displayAlert,
@@ -14,21 +15,31 @@ const AddBar = () => {
     address,
     phoneNumber,
     notes,
+    handleChange,
+    clearValues,
+    createBar,
   } = useAppContext();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // while testing
+
     if (!name) {
       displayAlert();
       return;
     }
-    console.log('Bar Created');
+    if (isEditing) {
+      // eventually editJob()
+      return;
+    }
+    createBar();
   };
 
   const handleJobInput = (e) => {
     const name = e.target.name;
     const value = e.target.value;
-    console.log(`${name}:${value}`);
+
+    handleChange({ name, value });
   };
 
   return (
@@ -77,8 +88,19 @@ const AddBar = () => {
               className='btn btn-block submit-btn'
               type='submit'
               onClick={handleSubmit}
+              disabled={isLoading}
             >
               submit
+            </button>
+
+            <button
+              className='btn btn-block clear-btn'
+              onClick={(e) => {
+                e.preventDefault();
+                clearValues();
+              }}
+            >
+              clear
             </button>
           </div>
         </div>
