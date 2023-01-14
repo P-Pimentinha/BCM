@@ -1,7 +1,13 @@
 import React from 'react';
+import { BarsContainer, SearchContainer } from '../../components';
 
 const Bars = () => {
-  return <div>Bars</div>;
+  return (
+    <>
+      <SearchContainer />
+      <BarsContainer />
+    </>
+  );
 };
 
 export default Bars;
