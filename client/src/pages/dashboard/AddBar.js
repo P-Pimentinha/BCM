@@ -62,6 +62,7 @@ const AddBar = () => {
             value={location}
             handleChange={handleJobInput}
           />
+
           <FormRow
             type='text'
             name='address'
