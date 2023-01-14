@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Bar = () => {
-  return <div>Single bar</div>;
+const Bar = ({ name }) => {
+  return <div>{name}</div>;
 };
 
 export default Bar;
