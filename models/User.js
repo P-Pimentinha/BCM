@@ -38,24 +38,6 @@ const UserSchema = new mongoose.Schema({
     trim: true,
     default: 'my city',
   },
-  phoneCodes: {
-    type: String,
-    maxlength: 256,
-    trim: true,
-    default: 'my city',
-  },
-  tabletCodes: {
-    type: String,
-    maxlength: 256,
-    trim: true,
-    default: 'my city',
-  },
-  kassenCodes: {
-    type: String,
-    maxlength: 256,
-    trim: true,
-    default: 'my city',
-  },
 });
 
 UserSchema.pre('save', async function () {

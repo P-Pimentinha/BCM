@@ -35,6 +35,24 @@ const BarSchema = new mongoose.Schema({
     trim: true,
     default: 'no value',
   },
+  phoneCodes: {
+    type: String,
+    maxlength: 256,
+    trim: true,
+    default: 'my city',
+  },
+  tabletCodes: {
+    type: String,
+    maxlength: 256,
+    trim: true,
+    default: 'my city',
+  },
+  kassenCodes: {
+    type: String,
+    maxlength: 256,
+    trim: true,
+    default: 'my city',
+  },
 });
 
 export default mongoose.model('Bar', BarSchema);

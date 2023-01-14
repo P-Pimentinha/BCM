@@ -130,7 +130,7 @@ const reducer = (state, action) => {
       token: action.payload.token,
       user: action.payload.user,
       userLocation: action.payload.location,
-      jobLocation: action.payload.location,
+
       showAlert: true,
       alertType: 'success',
       alertText: 'User Profile Updated!',
@@ -162,6 +162,9 @@ const reducer = (state, action) => {
       address: '',
       phoneNumber: '',
       notes: '',
+      phoneCodes: '',
+      tabletCodes: '',
+      kassenCodes: '',
     };
 
     return { ...state, ...initialState };
@@ -176,7 +179,7 @@ const reducer = (state, action) => {
       isLoading: false,
       showAlert: true,
       alertType: 'success',
-      alertText: 'New Job Created!',
+      alertText: 'New Bar Created!',
     };
   }
   if (action.type === CREATE_BAR_ERROR) {

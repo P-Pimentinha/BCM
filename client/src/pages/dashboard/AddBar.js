@@ -15,6 +15,9 @@ const AddBar = () => {
     address,
     phoneNumber,
     notes,
+    phoneCodes,
+    tabletCodes,
+    kassenCodes,
     handleChange,
     clearValues,
     createBar,
@@ -62,18 +65,37 @@ const AddBar = () => {
             value={location}
             handleChange={handleJobInput}
           />
-
           <FormRow
             type='text'
             name='address'
             value={address}
             handleChange={handleJobInput}
           />
-
           <FormRow
             type='text'
             name='phoneNumber'
             value={phoneNumber}
+            handleChange={handleJobInput}
+          />
+
+          <FormRow
+            type='text'
+            name='phoneCodes'
+            value={phoneCodes}
+            handleChange={handleJobInput}
+          />
+
+          <FormRow
+            type='text'
+            name='tabletCodes'
+            value={tabletCodes}
+            handleChange={handleJobInput}
+          />
+
+          <FormRow
+            type='text'
+            name='kassenCodes'
+            value={kassenCodes}
             handleChange={handleJobInput}
           />
 

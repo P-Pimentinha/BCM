@@ -46,6 +46,9 @@ const initialState = {
   address: '',
   phoneNumber: '',
   notes: '',
+  phoneCodes: '',
+  barCodes: '',
+  kassenCodes: '',
 };
 
 const AppContext = React.createContext();
@@ -190,7 +193,16 @@ const AppProvider = ({ children }) => {
   const createBar = async () => {
     dispatch({ type: CREATE_BAR_BEGIN });
     try {
-      const { name, location, address, phoneNumber, notes } = state;
+      const {
+        name,
+        location,
+        address,
+        phoneNumber,
+        notes,
+        phoneCodes,
+        tabletCodes,
+        kassenCodes,
+      } = state;
 
       await authFetch.post('/bars', {
         name,
@@ -198,6 +210,9 @@ const AppProvider = ({ children }) => {
         address,
         phoneNumber,
         notes,
+        phoneCodes,
+        tabletCodes,
+        kassenCodes,
       });
       dispatch({
         type: CREATE_BAR_SUCCESS,
