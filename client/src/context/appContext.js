@@ -1,4 +1,4 @@
-import { useReducer, useContext } from 'react';
+import { useReducer, useContext, useEffect } from 'react';
 import React from 'react';
 import axios from 'axios';
 import reducer from './reducer';
@@ -21,6 +21,8 @@ import {
   CREATE_BAR_BEGIN,
   CREATE_BAR_SUCCESS,
   CREATE_BAR_ERROR,
+  GET_BARS_BEGIN,
+  GET_BARS_SUCCESS,
 } from './action';
 
 const user = localStorage.getItem('user');
@@ -49,6 +51,11 @@ const initialState = {
   phoneCodes: '',
   barCodes: '',
   kassenCodes: '',
+
+  bars: [],
+  totalBars: 0,
+  page: 1,
+  numOfPages: 1,
 };
 
 const AppContext = React.createContext();
@@ -229,6 +236,28 @@ const AppProvider = ({ children }) => {
     clearAlert();
   };
 
+  const getBars = async () => {
+    let url = `/bars`;
+    dispatch({ type: GET_BARS_BEGIN });
+
+    try {
+      const { data } = await authFetch(url);
+      const { bars, totalBars, numOfPages } = data;
+      dispatch({
+        type: GET_BARS_SUCCESS,
+        payload: {
+          bars,
+          totalBars,
+          numOfPages,
+        },
+      });
+    } catch (error) {
+      console.log(error.response);
+      logoutUser();
+    }
+    clearAlert();
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -242,6 +271,7 @@ const AppProvider = ({ children }) => {
         handleChange,
         updateUser,
         createBar,
+        getBars,
       }}
     >
       {children}

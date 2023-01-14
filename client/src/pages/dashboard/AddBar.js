@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FormRow, Alert } from './../../components';
 import { useAppContext } from '../../context/appContext';
 import Wrapper from '../../assets/wrappers/DashboardFormPage';
@@ -21,6 +21,7 @@ const AddBar = () => {
     handleChange,
     clearValues,
     createBar,
+    getBars,
   } = useAppContext();
 
   const handleSubmit = (e) => {

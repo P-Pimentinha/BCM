@@ -20,7 +20,7 @@ const deleteBar = async (req, res) => {
 };
 
 const getAllBars = async (req, res) => {
-  const bars = await Bar.find();
+  const bars = await Bar.find({ createdBy: req.user.userId });
   res
     .status(StatusCodes.OK)
     .json({ bars, totalBars: bars.length, numOfPages: 1 });

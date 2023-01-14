@@ -17,6 +17,8 @@ import {
   CREATE_BAR_BEGIN,
   CREATE_BAR_SUCCESS,
   CREATE_BAR_ERROR,
+  GET_BARS_BEGIN,
+  GET_BARS_SUCCESS,
 } from './action';
 import { initialState } from './appContext';
 
@@ -189,6 +191,19 @@ const reducer = (state, action) => {
       showAlert: true,
       alertType: 'danger',
       alertText: action.payload.msg,
+    };
+  }
+
+  if (action.type === GET_BARS_BEGIN) {
+    return { ...state, isLoading: true, showAlert: false };
+  }
+  if (action.type === GET_BARS_SUCCESS) {
+    return {
+      ...state,
+      isLoading: false,
+      bars: action.payload.bars,
+      totalBars: action.payload.totalBars,
+      numOfPages: action.payload.numOfPages,
     };
   }
   throw new Error(`no such action : ${action.type}`);
