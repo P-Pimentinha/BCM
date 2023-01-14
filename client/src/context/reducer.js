@@ -162,7 +162,7 @@ const reducer = (state, action) => {
       name: '',
       location: '',
       address: '',
-      phoneNumber: '',
+      phonenumber: '',
       notes: '',
       phoneCodes: '',
       tabletCodes: '',

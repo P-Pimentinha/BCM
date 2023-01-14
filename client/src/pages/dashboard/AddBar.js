@@ -13,7 +13,7 @@ const AddBar = () => {
     name,
     location,
     address,
-    phoneNumber,
+    phonenumber,
     notes,
     phoneCodes,
     tabletCodes,
@@ -49,7 +49,7 @@ const AddBar = () => {
   return (
     <Wrapper>
       <form className='form'>
-        <h3>{isEditing ? 'edit job' : 'add job'}</h3>
+        <h3>{isEditing ? 'edit bar' : 'add bar'}</h3>
         {showAlert && <Alert />}
 
         {/* name */}
@@ -74,8 +74,8 @@ const AddBar = () => {
           />
           <FormRow
             type='text'
-            name='phoneNumber'
-            value={phoneNumber}
+            name='phonenumber'
+            value={phonenumber}
             handleChange={handleJobInput}
           />
 

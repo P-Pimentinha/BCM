@@ -46,7 +46,7 @@ const initialState = {
   name: '',
   location: '',
   address: '',
-  phoneNumber: '',
+  phonenumber: '',
   notes: '',
   phoneCodes: '',
   barCodes: '',
@@ -204,7 +204,7 @@ const AppProvider = ({ children }) => {
         name,
         location,
         address,
-        phoneNumber,
+        phonenumber,
         notes,
         phoneCodes,
         tabletCodes,
@@ -215,7 +215,7 @@ const AppProvider = ({ children }) => {
         name,
         location,
         address,
-        phoneNumber,
+        phonenumber,
         notes,
         phoneCodes,
         tabletCodes,
@@ -258,6 +258,13 @@ const AppProvider = ({ children }) => {
     clearAlert();
   };
 
+  const setEditBar = (id) => {
+    console.log(`set edit job : ${id}`);
+  };
+  const deleteBar = (id) => {
+    console.log(`delete : ${id}`);
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -272,6 +279,8 @@ const AppProvider = ({ children }) => {
         updateUser,
         createBar,
         getBars,
+        setEditBar,
+        deleteBar,
       }}
     >
       {children}
