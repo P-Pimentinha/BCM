@@ -9,6 +9,8 @@ const createBar = async (req, res) => {
     throw new BadRequestError('Please Provide All Values!');
   }
 
+  req.body.createdBy = req.user.userId;
+
   const bar = await Bar.create(req.body);
   res.status(StatusCodes.CREATED).json({ bar });
 };
@@ -18,7 +20,10 @@ const deleteBar = async (req, res) => {
 };
 
 const getAllBars = async (req, res) => {
-  res.send('get all');
+  const bars = await Bar.find();
+  res
+    .status(StatusCodes.OK)
+    .json({ bars, totalBars: bars.length, numOfPages: 1 });
 };
 
 const showStats = async (req, res) => {
