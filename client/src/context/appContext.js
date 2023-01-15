@@ -286,6 +286,7 @@ const AppProvider = ({ children }) => {
         getBars,
         setEditBar,
         deleteBar,
+        editbar,
       }}
     >
       {children}

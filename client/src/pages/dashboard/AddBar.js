@@ -9,7 +9,7 @@ const AddBar = () => {
     showAlert,
     isEditing,
     displayAlert,
-    editBar,
+    editBarId,
     name,
     location,
     address,
@@ -22,6 +22,7 @@ const AddBar = () => {
     clearValues,
     createBar,
     getBars,
+    editbar,
   } = useAppContext();
 
   const handleSubmit = (e) => {
@@ -33,7 +34,7 @@ const AddBar = () => {
       return;
     }
     if (isEditing) {
-      // eventually editJob()
+      editbar();
       return;
     }
     createBar();
