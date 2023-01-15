@@ -27,3 +27,5 @@ export const CREATE_BAR_ERROR = 'CREATE_BAR_ERROR';
 
 export const GET_BARS_BEGIN = 'GET_BARS_BEGIN';
 export const GET_BARS_SUCCESS = 'GET_BARS_SUCCESS';
+
+export const SET_EDIT_BAR = 'SET_EDIT_BAR';

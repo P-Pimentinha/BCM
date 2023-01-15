@@ -23,6 +23,7 @@ import {
   CREATE_BAR_ERROR,
   GET_BARS_BEGIN,
   GET_BARS_SUCCESS,
+  SET_EDIT_BAR,
 } from './action';
 
 const user = localStorage.getItem('user');
@@ -42,7 +43,7 @@ const initialState = {
   showSidebar: false,
 
   isEditing: false,
-  editBar: '',
+  editBarId: '',
   name: '',
   location: '',
   address: '',
@@ -259,7 +260,11 @@ const AppProvider = ({ children }) => {
   };
 
   const setEditBar = (id) => {
-    console.log(`set edit job : ${id}`);
+    dispatch({ type: SET_EDIT_BAR, payload: { id } });
+  };
+
+  const editbar = () => {
+    console.log('edit bar');
   };
   const deleteBar = (id) => {
     console.log(`delete : ${id}`);

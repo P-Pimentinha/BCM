@@ -19,6 +19,7 @@ import {
   CREATE_BAR_ERROR,
   GET_BARS_BEGIN,
   GET_BARS_SUCCESS,
+  SET_EDIT_BAR,
 } from './action';
 import { initialState } from './appContext';
 
@@ -206,6 +207,36 @@ const reducer = (state, action) => {
       numOfPages: action.payload.numOfPages,
     };
   }
+
+  if (action.type === SET_EDIT_BAR) {
+    const bar = state.bars.find((bar) => bar._id === action.payload.id);
+    const {
+      _id,
+      name,
+      location,
+      address,
+      phonenumber,
+      notes,
+      phoneCodes,
+      barCodes,
+      kassenCodes,
+    } = bar;
+
+    return {
+      ...state,
+      isEditing: true,
+      editBarId: _id,
+      name,
+      location,
+      address,
+      phonenumber,
+      notes,
+      phoneCodes,
+      barCodes,
+      kassenCodes,
+    };
+  }
+
   throw new Error(`no such action : ${action.type}`);
 };
 
