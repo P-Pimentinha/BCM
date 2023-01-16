@@ -24,6 +24,7 @@ import {
   GET_BARS_BEGIN,
   GET_BARS_SUCCESS,
   SET_EDIT_BAR,
+  DELETE_BAR_BEGIN,
 } from './action';
 
 const user = localStorage.getItem('user');
@@ -266,8 +267,15 @@ const AppProvider = ({ children }) => {
   const editbar = () => {
     console.log('edit bar');
   };
-  const deleteBar = (id) => {
-    console.log(`delete : ${id}`);
+  const deleteBar = async (barId) => {
+    dispatch({ type: DELETE_BAR_BEGIN });
+
+    try {
+      await authFetch.delete(`/bars/${barId}`);
+      getBars();
+    } catch (error) {
+      logoutUser();
+    }
   };
 
   return (

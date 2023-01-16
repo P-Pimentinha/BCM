@@ -29,3 +29,5 @@ export const GET_BARS_BEGIN = 'GET_BARS_BEGIN';
 export const GET_BARS_SUCCESS = 'GET_BARS_SUCCESS';
 
 export const SET_EDIT_BAR = 'SET_EDIT_BAR';
+
+export const DELETE_BAR_BEGIN = 'DELETE_BAR_BEGIN';

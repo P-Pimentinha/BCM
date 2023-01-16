@@ -20,6 +20,7 @@ import {
   GET_BARS_BEGIN,
   GET_BARS_SUCCESS,
   SET_EDIT_BAR,
+  DELETE_BAR_BEGIN,
 } from './action';
 import { initialState } from './appContext';
 
@@ -237,6 +238,12 @@ const reducer = (state, action) => {
     };
   }
 
+  if (action.type === DELETE_BAR_BEGIN) {
+    return {
+      ...state,
+      isLoading: true,
+    };
+  }
   throw new Error(`no such action : ${action.type}`);
 };
 
