@@ -21,6 +21,9 @@ import {
   GET_BARS_SUCCESS,
   SET_EDIT_BAR,
   DELETE_BAR_BEGIN,
+  EDIT_BAR_BEGIN,
+  EDIT_BAR_SUCCESS,
+  EDIT_BAR_ERROR,
 } from './action';
 import { initialState } from './appContext';
 
@@ -160,7 +163,7 @@ const reducer = (state, action) => {
   if (action.type === CLEAR_VALUES) {
     const initialState = {
       isEditing: false,
-      editBar: '',
+      editBarId: '',
       name: '',
       location: '',
       address: '',
@@ -242,6 +245,30 @@ const reducer = (state, action) => {
     return {
       ...state,
       isLoading: true,
+    };
+  }
+
+  if (action.type === EDIT_BAR_BEGIN) {
+    return { ...state, isLoading: true };
+  }
+
+  if (action.type === EDIT_BAR_SUCCESS) {
+    return {
+      ...state,
+      isLoading: false,
+      showAlert: true,
+      alertType: 'success',
+      alertText: 'Bar Updated',
+    };
+  }
+
+  if (action.type === EDIT_BAR_ERROR) {
+    return {
+      ...state,
+      isLoading: false,
+      showAlert: true,
+      alertType: 'danger',
+      alertText: action.payload.msg,
     };
   }
   throw new Error(`no such action : ${action.type}`);

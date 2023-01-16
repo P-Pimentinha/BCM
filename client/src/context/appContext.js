@@ -25,6 +25,9 @@ import {
   GET_BARS_SUCCESS,
   SET_EDIT_BAR,
   DELETE_BAR_BEGIN,
+  EDIT_BAR_BEGIN,
+  EDIT_BAR_SUCCESS,
+  EDIT_BAR_ERROR,
 } from './action';
 
 const user = localStorage.getItem('user');
@@ -264,9 +267,42 @@ const AppProvider = ({ children }) => {
     dispatch({ type: SET_EDIT_BAR, payload: { id } });
   };
 
-  const editbar = () => {
-    console.log('edit bar');
+  const editbar = async () => {
+    dispatch({ type: EDIT_BAR_BEGIN });
+    try {
+      const {
+        name,
+        location,
+        address,
+        phonenumber,
+        notes,
+        phoneCodes,
+        barCodes,
+        kassenCodes,
+      } = state;
+
+      await authFetch.patch(`/bars/${state.editBarId}`, {
+        name,
+        location,
+        address,
+        phonenumber,
+        notes,
+        phoneCodes,
+        barCodes,
+        kassenCodes,
+      });
+
+      dispatch({ type: EDIT_BAR_SUCCESS });
+      clearValues();
+    } catch (error) {
+      dispatch({
+        type: EDIT_BAR_ERROR,
+        payload: { msg: error.response.data.msg },
+      });
+    }
+    clearAlert();
   };
+
   const deleteBar = async (barId) => {
     dispatch({ type: DELETE_BAR_BEGIN });
 

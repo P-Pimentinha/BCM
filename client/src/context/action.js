@@ -31,3 +31,7 @@ export const GET_BARS_SUCCESS = 'GET_BARS_SUCCESS';
 export const SET_EDIT_BAR = 'SET_EDIT_BAR';
 
 export const DELETE_BAR_BEGIN = 'DELETE_BAR_BEGIN';
+
+export const EDIT_BAR_BEGIN = 'EDIT_BAR_BEGIN';
+export const EDIT_BAR_SUCCESS = 'EDIT_BAR_SUCCESS';
+export const EDIT_BAR_ERROR = 'EDIT_BAR_ERROR';
