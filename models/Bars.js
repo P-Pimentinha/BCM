@@ -13,7 +13,6 @@ const BarSchema = new mongoose.Schema({
 
     maxlength: 50,
     trim: true,
-    default: 'no value',
   },
   location: {
     type: String,
@@ -21,35 +20,41 @@ const BarSchema = new mongoose.Schema({
     trim: true,
     default: 'München',
   },
-  phonenumber: {
-    type: String,
-    maxlength: 50,
-    trim: true,
-    default: 'no value',
-  },
   notes: {
     type: String,
     maxlength: 250,
     trim: true,
-    default: 'no value',
   },
-  phoneCodes: {
+  // Phone
+  phoneNumber: {
     type: String,
-    maxlength: 256,
+    maxlength: 25,
     trim: true,
-    default: 'no value',
+  },
+  unlockPhoneCode: {
+    type: String,
+    maxlength: 25,
+    trim: true,
+  },
+  phonePin: {
+    type: String,
+    maxlength: 25,
+    trim: true,
+  },
+  phonePuk: {
+    type: String,
+    maxlength: 25,
+    trim: true,
   },
   tabletCodes: {
     type: String,
     maxlength: 256,
     trim: true,
-    default: 'no value',
   },
   kassenCodes: {
     type: String,
     maxlength: 256,
     trim: true,
-    default: 'no value',
   },
   createdBy: {
     type: mongoose.Types.ObjectId,

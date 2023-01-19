@@ -14,10 +14,12 @@ const Bar = ({
   name,
   location,
   address,
-  phonenumber,
+  phoneNumber,
   notes,
-  phoneCodes,
+  unlockPhoneCode,
   tabletCodes,
+  phonePin,
+  phonePuk,
   kassenCodes,
 }) => {
   const { setEditBar, deleteBar } = useAppContext();
@@ -28,18 +30,24 @@ const Bar = ({
         <div className='info'>
           <h5>{name}</h5>
           <p>{address}</p>
-          <p>{phonenumber}</p>
+          <p>{phoneNumber}</p>
         </div>
       </header>
+
       <div className='content'>
         <div className='content-center'>
-          <BarInfo icon={<FaLocationArrow />} text={location} />
+          <h5>phone</h5>
+          {unlockPhoneCode && (
+            <BarInfo icon={<AiOutlinePhone />} text={unlockPhoneCode} />
+          )}
+          {phonePin && <BarInfo icon={<FaLocationArrow />} text={phonePin} />}
 
-          <BarInfo icon={<AiOutlinePhone />} text={phoneCodes} />
-          <BarInfo icon={<AiOutlineTablet />} text={tabletCodes} />
-          <BarInfo icon={<FaCashRegister />} text={kassenCodes} />
-          <BarInfo icon={<GrNotes />} text={notes} />
+          {phonePuk && <BarInfo icon={<AiOutlineTablet />} text={phonePuk} />}
+          {kassenCodes && (
+            <BarInfo icon={<FaCashRegister />} text={kassenCodes} />
+          )}
         </div>
+
         <footer>
           <div className='action'>
             <Link

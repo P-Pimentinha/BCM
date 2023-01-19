@@ -51,11 +51,15 @@ const initialState = {
   name: '',
   location: '',
   address: '',
-  phonenumber: '',
   notes: '',
   phoneCodes: '',
   barCodes: '',
   kassenCodes: '',
+
+  phoneNumber: '',
+  unlockPhoneCode: '',
+  phonePin: '',
+  phonePuk: '',
 
   bars: [],
   totalBars: 0,
@@ -209,22 +213,26 @@ const AppProvider = ({ children }) => {
         name,
         location,
         address,
-        phonenumber,
         notes,
-        phoneCodes,
         tabletCodes,
         kassenCodes,
+        phoneNumber,
+        unlockPhoneCode,
+        phonePin,
+        phonePuk,
       } = state;
 
       await authFetch.post('/bars', {
         name,
         location,
         address,
-        phonenumber,
         notes,
-        phoneCodes,
         tabletCodes,
         kassenCodes,
+        phoneNumber,
+        unlockPhoneCode,
+        phonePin,
+        phonePuk,
       });
       dispatch({
         type: CREATE_BAR_SUCCESS,
@@ -274,22 +282,26 @@ const AppProvider = ({ children }) => {
         name,
         location,
         address,
-        phonenumber,
         notes,
-        phoneCodes,
-        barCodes,
+        tabletCodes,
         kassenCodes,
+        phoneNumber,
+        unlockPhoneCode,
+        phonePin,
+        phonePuk,
       } = state;
 
       await authFetch.patch(`/bars/${state.editBarId}`, {
         name,
         location,
         address,
-        phonenumber,
         notes,
-        phoneCodes,
-        barCodes,
+        tabletCodes,
         kassenCodes,
+        phoneNumber,
+        unlockPhoneCode,
+        phonePin,
+        phonePuk,
       });
 
       dispatch({ type: EDIT_BAR_SUCCESS });

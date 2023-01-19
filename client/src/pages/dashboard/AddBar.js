@@ -13,9 +13,11 @@ const AddBar = () => {
     name,
     location,
     address,
-    phonenumber,
+    phoneNumber,
+    unlockPhoneCode,
+    phonePin,
+    phonePuk,
     notes,
-    phoneCodes,
     tabletCodes,
     kassenCodes,
     handleChange,
@@ -75,15 +77,29 @@ const AddBar = () => {
           />
           <FormRow
             type='text'
-            name='phonenumber'
-            value={phonenumber}
+            name='phoneNumber'
+            value={phoneNumber}
             handleChange={handleJobInput}
           />
 
           <FormRow
             type='text'
-            name='phoneCodes'
-            value={phoneCodes}
+            name='unlockPhoneCode'
+            value={unlockPhoneCode}
+            handleChange={handleJobInput}
+          />
+
+          <FormRow
+            type='text'
+            name='phonePin'
+            value={phonePin}
+            handleChange={handleJobInput}
+          />
+
+          <FormRow
+            type='text'
+            name='phonePuk'
+            value={phonePuk}
             handleChange={handleJobInput}
           />
 

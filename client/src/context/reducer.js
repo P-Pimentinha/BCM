@@ -167,11 +167,14 @@ const reducer = (state, action) => {
       name: '',
       location: '',
       address: '',
-      phonenumber: '',
       notes: '',
       phoneCodes: '',
-      tabletCodes: '',
+      barCodes: '',
       kassenCodes: '',
+      phoneNumber: '',
+      unlockPhoneCode: '',
+      phonePin: '',
+      phonePuk: '',
     };
 
     return { ...state, ...initialState };
@@ -219,11 +222,13 @@ const reducer = (state, action) => {
       name,
       location,
       address,
-      phonenumber,
       notes,
-      phoneCodes,
-      barCodes,
+      tabletCodes,
       kassenCodes,
+      phoneNumber,
+      unlockPhoneCode,
+      phonePin,
+      phonePuk,
     } = bar;
 
     return {
@@ -233,11 +238,13 @@ const reducer = (state, action) => {
       name,
       location,
       address,
-      phonenumber,
       notes,
-      phoneCodes,
-      barCodes,
+      tabletCodes,
       kassenCodes,
+      phoneNumber,
+      unlockPhoneCode,
+      phonePin,
+      phonePuk,
     };
   }
 

@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const Wrapper = styled.article`
   background: var(--white);
@@ -17,6 +17,18 @@ const Wrapper = styled.article`
       letter-spacing: 0;
     }
   }
+
+  .header-title {
+    padding: 1rem 1.5rem;
+
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    h5 {
+      letter-spacing: 0;
+    }
+  }
+
   .main-icon {
     width: 60px;
     height: 60px;
@@ -34,6 +46,7 @@ const Wrapper = styled.article`
     h5 {
       margin-bottom: 0.25rem;
     }
+
     p {
       margin: 0;
       text-transform: capitalize;
@@ -60,7 +73,8 @@ const Wrapper = styled.article`
     display: grid;
     grid-template-columns: 1fr;
     row-gap: 0.5rem;
-    @media (min-width: 576px) {
+    border-bottom: 1px solid var(--grey-100);
+    /* @media (min-width: 576px) {
       grid-template-columns: 1fr 1fr;
     }
     @media (min-width: 992px) {
@@ -68,9 +82,12 @@ const Wrapper = styled.article`
     }
     @media (min-width: 1120px) {
       grid-template-columns: 1fr 1fr;
-    }
+    } */
   }
 
+  h5 {
+    margin: 0;
+  }
   .status {
     border-radius: var(--borderRadius);
     text-transform: capitalize;
@@ -93,6 +110,7 @@ const Wrapper = styled.article`
     background: var(--green-light);
     margin-right: 0.5rem;
   }
+
   .delete-btn {
     color: var(--red-dark);
     background: var(--red-light);
@@ -100,6 +118,6 @@ const Wrapper = styled.article`
   &:hover .actions {
     visibility: visible;
   }
-`
+`;
 
-export default Wrapper
+export default Wrapper;
