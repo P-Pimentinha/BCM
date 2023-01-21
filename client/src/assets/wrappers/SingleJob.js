@@ -7,6 +7,10 @@ const Wrapper = styled.article`
   grid-template-rows: 1fr auto;
   box-shadow: var(--shadow-2);
 
+  .container {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+  }
   header {
     padding: 1rem 1.5rem;
     border-bottom: 1px solid var(--grey-100);

@@ -38,7 +38,6 @@ const Bar = ({
 
       <div className='content'>
         <div className='content-center'>
-          <h5>phone</h5>
           {unlockPhoneCode && (
             <BarInfo icon={<AiOutlinePhone />} text={unlockPhoneCode} />
           )}
