@@ -7,6 +7,7 @@ import {
   ProtectedRoute,
   Bars,
   AddBar,
+  ViewBar,
 } from './pages/dashboard';
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
             <Route index element={<WelcomePage />}></Route>
             <Route path='profile' element={<Profile />}></Route>
             <Route path='bars' element={<Bars />}></Route>
+            <Route path='viewBar' element={<ViewBar />}></Route>
             <Route path='addbar' element={<AddBar />}></Route>
           </Route>
           <Route path='/register' element={<Register />}></Route>

@@ -28,6 +28,8 @@ import {
   EDIT_BAR_BEGIN,
   EDIT_BAR_SUCCESS,
   EDIT_BAR_ERROR,
+  GET_BAR_BEGIN,
+  GET_BAR_SUCCESS,
 } from './action';
 
 const user = localStorage.getItem('user');
@@ -61,6 +63,7 @@ const initialState = {
   phonePin: '',
   phonePuk: '',
 
+  bar: [],
   bars: [],
   totalBars: 0,
   page: 1,
@@ -256,6 +259,7 @@ const AppProvider = ({ children }) => {
     try {
       const { data } = await authFetch(url);
       const { bars, totalBars, numOfPages } = data;
+
       dispatch({
         type: GET_BARS_SUCCESS,
         payload: {
@@ -267,6 +271,28 @@ const AppProvider = ({ children }) => {
     } catch (error) {
       console.log(error.response);
       logoutUser();
+    }
+    clearAlert();
+  };
+
+  // NEW
+  const getBar = async (id) => {
+    let url = `/bars/${id}`;
+    dispatch({ type: GET_BAR_BEGIN });
+
+    try {
+      const { data } = await authFetch(url);
+      const { bar } = data;
+      console.log(bar._id);
+      dispatch({
+        type: GET_BAR_SUCCESS,
+        payload: {
+          bar,
+        },
+      });
+    } catch (error) {
+      console.log(error.response);
+      // logoutUser();
     }
     clearAlert();
   };
@@ -343,6 +369,7 @@ const AppProvider = ({ children }) => {
         setEditBar,
         deleteBar,
         editbar,
+        getBar,
       }}
     >
       {children}

@@ -24,6 +24,8 @@ import {
   EDIT_BAR_BEGIN,
   EDIT_BAR_SUCCESS,
   EDIT_BAR_ERROR,
+  GET_BAR_BEGIN,
+  GET_BAR_SUCCESS,
 } from './action';
 import { initialState } from './appContext';
 
@@ -212,6 +214,17 @@ const reducer = (state, action) => {
       bars: action.payload.bars,
       totalBars: action.payload.totalBars,
       numOfPages: action.payload.numOfPages,
+    };
+  }
+
+  if (action.type === GET_BAR_BEGIN) {
+    return { ...state, isLoading: true, showAlert: false };
+  }
+  if (action.type === GET_BAR_SUCCESS) {
+    return {
+      ...state,
+      isLoading: false,
+      bar: action.payload.bar,
     };
   }
 
