@@ -75,6 +75,7 @@ const AddBar = () => {
             value={address}
             handleChange={handleJobInput}
           />
+
           <FormRow
             type='text'
             name='phoneNumber'

@@ -38,6 +38,20 @@ const getAllBars = async (req, res) => {
     .json({ bars, totalBars: bars.length, numOfPages: 1 });
 };
 
+const getBar = async (req, res) => {
+  const { id: barId } = req.params;
+
+  const bar = await Bar.findOne({ _id: barId });
+
+  if (!bar) {
+    throw new NotFoundError(`No bar with id ${barId}`);
+  }
+
+  checkPermissions(req.user, bar.createdBy);
+
+  res.status(StatusCodes.OK).json({ bar });
+};
+
 const showStats = async (req, res) => {
   res.send('show stats');
 };
@@ -66,4 +80,4 @@ const updateBar = async (req, res) => {
   res.status(StatusCodes.OK).json({ updatedBar });
 };
 
-export { createBar, deleteBar, getAllBars, updateBar, showStats };
+export { createBar, deleteBar, getAllBars, updateBar, showStats, getBar };
