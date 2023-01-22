@@ -14,7 +14,34 @@ const ViewBar = () => {
 
   return (
     <Wrapper>
-      <div className='container'>
+      <div class='grid'>
+        <div className='box'>
+          <header>General Info</header>
+
+          <p>Name: {bar.name}</p>
+          <p>Address: {bar.address}</p>
+          <p>Location: {bar.location}</p>
+        </div>
+        <div className='box'>
+          <header>Register</header>
+
+          <span>User: {bar.kassenCodes}</span>
+        </div>
+        <div className='box'>
+          <header>Phone</header>
+
+          <p>number: {bar.phoneNumber}</p>
+          <p>Pin: {bar.phonePin}</p>
+          <p>Puk: {bar.phonePuk}</p>
+        </div>
+        <div className='box'>
+          <header>Tablet</header>
+
+          <span>Tablet: {bar.tabletCodes}</span>
+        </div>
+      </div>
+
+      {/* <div className='container'>
         <div>
           <p>{bar._id}</p>
           <p>Name: {bar.name}</p>
@@ -26,7 +53,7 @@ const ViewBar = () => {
           <p>{bar._id}</p>
           <p>Name: {bar.name}</p>
         </div>
-      </div>
+      </div> */}
     </Wrapper>
   );
 };
