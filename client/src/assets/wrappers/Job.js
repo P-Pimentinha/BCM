@@ -74,7 +74,7 @@ const Wrapper = styled.article`
     display: grid;
     grid-template-columns: 1fr;
     row-gap: 0.5rem;
-    border-bottom: 1px solid var(--grey-100);
+
     @media (min-width: 576px) {
       grid-template-columns: 1fr 1fr;
     }

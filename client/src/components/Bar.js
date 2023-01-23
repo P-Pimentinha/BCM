@@ -37,7 +37,7 @@ const Bar = ({
       </header>
 
       <div className='content'>
-        <div className='content-center'>
+        {/* <div className='content-center'>
           {unlockPhoneCode && (
             <BarInfo icon={<AiOutlinePhone />} text={unlockPhoneCode} />
           )}
@@ -47,7 +47,7 @@ const Bar = ({
           {kassenCodes && (
             <BarInfo icon={<FaCashRegister />} text={kassenCodes} />
           )}
-        </div>
+        </div> */}
 
         <footer>
           <div className='action'>
