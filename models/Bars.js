@@ -20,6 +20,11 @@ const BarSchema = new mongoose.Schema({
     trim: true,
     default: 'München',
   },
+  wifi: {
+    type: String,
+    maxlength: 25,
+    trim: true,
+  },
   notes: {
     type: String,
     maxlength: 250,
@@ -46,14 +51,31 @@ const BarSchema = new mongoose.Schema({
     maxlength: 25,
     trim: true,
   },
-  tabletCodes: {
+  // tablet
+  tabletUnlock: {
     type: String,
-    maxlength: 256,
+    maxlength: 25,
     trim: true,
   },
-  kassenCodes: {
+  tabletPin: {
     type: String,
-    maxlength: 256,
+    maxlength: 25,
+    trim: true,
+  },
+  tabletPuk: {
+    type: String,
+    maxlength: 25,
+    trim: true,
+  },
+  //kasse
+  kasseUser: {
+    type: String,
+    maxlength: 25,
+    trim: true,
+  },
+  registerPassword: {
+    type: String,
+    maxlength: 25,
     trim: true,
   },
   createdBy: {

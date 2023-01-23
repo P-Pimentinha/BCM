@@ -27,6 +27,9 @@ const ViewBar = () => {
             <p>
               <b>Location :</b> {bar.location}
             </p>
+            <p>
+              <b>WIFI :</b> {bar.wifi}
+            </p>
           </div>
         </div>
 
@@ -34,7 +37,10 @@ const ViewBar = () => {
           <header>Register</header>
           <div className='content'>
             <p>
-              <b>User :</b> {bar.kassenCodes}
+              <b>User :</b> {bar.kasseUser}
+            </p>
+            <p>
+              <b>Password :</b> {bar.registerPassword}
             </p>
           </div>
         </div>
@@ -44,6 +50,9 @@ const ViewBar = () => {
           <div className='content'>
             <p>
               <b>Number :</b> {bar.phoneNumber}
+            </p>
+            <p>
+              <b>Unlock :</b> {bar.unlockPhoneCode}
             </p>
             <p>
               <b>PIN :</b> {bar.phonePin}
@@ -58,7 +67,13 @@ const ViewBar = () => {
           <header>Tablet</header>
           <div className='content'>
             <p>
-              <b>Tablet :</b> {bar.tabletCodes}
+              <b>Unlock :</b> {bar.tabletUnlock}
+            </p>
+            <p>
+              <b>PIN :</b> {bar.tabletPin}
+            </p>
+            <p>
+              <b>PUK :</b> {bar.tabletPuk}
             </p>
           </div>
         </div>

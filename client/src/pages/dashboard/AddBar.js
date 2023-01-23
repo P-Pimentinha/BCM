@@ -13,13 +13,17 @@ const AddBar = () => {
     name,
     location,
     address,
+    wifi,
+    notes,
     phoneNumber,
     unlockPhoneCode,
     phonePin,
     phonePuk,
-    notes,
-    tabletCodes,
-    kassenCodes,
+    tabletUnlock,
+    tabletPin,
+    tabletPuk,
+    kasseUser,
+    registerPassword,
     handleChange,
     clearValues,
     createBar,
@@ -78,26 +82,34 @@ const AddBar = () => {
 
           <FormRow
             type='text'
-            name='phoneNumber'
-            value={phoneNumber}
+            name='wifi'
+            value={wifi}
             handleChange={handleJobInput}
           />
 
           <FormRow
+            labelText='Phone Number'
+            type='text'
+            name='phoneNumber'
+            value={phoneNumber}
+            handleChange={handleJobInput}
+          />
+          <FormRow
+            labelText='Unlock Phone'
             type='text'
             name='unlockPhoneCode'
             value={unlockPhoneCode}
             handleChange={handleJobInput}
           />
-
           <FormRow
+            labelText='Phone Pin'
             type='text'
             name='phonePin'
             value={phonePin}
             handleChange={handleJobInput}
           />
-
           <FormRow
+            labelText='Phone Puk'
             type='text'
             name='phonePuk'
             value={phonePuk}
@@ -105,16 +117,42 @@ const AddBar = () => {
           />
 
           <FormRow
+            labelText='Unlock Tablet'
             type='text'
-            name='tabletCodes'
-            value={tabletCodes}
+            name='tabletUnlock'
+            value={tabletUnlock}
             handleChange={handleJobInput}
           />
 
           <FormRow
+            labelText='Tablet Pin'
             type='text'
-            name='kassenCodes'
-            value={kassenCodes}
+            name='tabletPin'
+            value={tabletPin}
+            handleChange={handleJobInput}
+          />
+
+          <FormRow
+            labelText='Tablet Puk'
+            type='text'
+            name='tabletPuk'
+            value={tabletPuk}
+            handleChange={handleJobInput}
+          />
+
+          <FormRow
+            labelText='Kasse User'
+            type='text'
+            name='kasseUser'
+            value={kasseUser}
+            handleChange={handleJobInput}
+          />
+
+          <FormRow
+            labelText='Register Password'
+            type='text'
+            name='registerPassword'
+            value={registerPassword}
             handleChange={handleJobInput}
           />
 
@@ -124,7 +162,6 @@ const AddBar = () => {
             value={notes}
             handleChange={handleJobInput}
           />
-
           <div className='btn-container'>
             <button
               className='btn btn-block submit-btn'
