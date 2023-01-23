@@ -3,7 +3,7 @@ import React from 'react';
 import { useAppContext } from '../../context/appContext';
 import { useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
-import Wrapper from '../../assets/wrappers/SingleJob';
+import Wrapper from '../../assets/wrappers/SingleBar';
 
 const ViewBar = () => {
   const { bar } = useAppContext();
@@ -14,30 +14,53 @@ const ViewBar = () => {
 
   return (
     <Wrapper>
-      <div class='grid'>
+      <div class='container-grid'>
         <div className='box'>
           <header>General Info</header>
-
-          <p>Name: {bar.name}</p>
-          <p>Address: {bar.address}</p>
-          <p>Location: {bar.location}</p>
+          <div className='content'>
+            <p>
+              <b>Name :</b> {bar.name}
+            </p>
+            <p>
+              <b>Address :</b> {bar.address}
+            </p>
+            <p>
+              <b>Location :</b> {bar.location}
+            </p>
+          </div>
         </div>
+
         <div className='box'>
           <header>Register</header>
-
-          <span>User: {bar.kassenCodes}</span>
+          <div className='content'>
+            <p>
+              <b>User :</b> {bar.kassenCodes}
+            </p>
+          </div>
         </div>
+
         <div className='box'>
           <header>Phone</header>
-
-          <p>number: {bar.phoneNumber}</p>
-          <p>Pin: {bar.phonePin}</p>
-          <p>Puk: {bar.phonePuk}</p>
+          <div className='content'>
+            <p>
+              <b>Number :</b> {bar.phoneNumber}
+            </p>
+            <p>
+              <b>PIN :</b> {bar.phonePin}
+            </p>
+            <p>
+              <b>PUK :</b> {bar.phonePuk}
+            </p>
+          </div>
         </div>
+
         <div className='box'>
           <header>Tablet</header>
-
-          <span>Tablet: {bar.tabletCodes}</span>
+          <div className='content'>
+            <p>
+              <b>Tablet :</b> {bar.tabletCodes}
+            </p>
+          </div>
         </div>
       </div>
 
