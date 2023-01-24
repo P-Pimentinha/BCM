@@ -1,12 +1,12 @@
 import React from 'react';
 
 import { useAppContext } from '../../context/appContext';
-import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 import Wrapper from '../../assets/wrappers/SingleBar';
 
 const ViewBar = () => {
-  const { bar } = useAppContext();
+  const { bar, setEditBar, deleteBar } = useAppContext();
 
   if (bar.length === 0) {
     return <Navigate to='/bars' />;
@@ -14,6 +14,16 @@ const ViewBar = () => {
 
   return (
     <Wrapper>
+      <div className='action'>
+        <Link
+          to='/addbar'
+          onClick={() => setEditBar(bar._id)}
+          className='btn edit-btn'
+        >
+          Edit
+        </Link>
+      </div>
+
       <div class='container-grid'>
         <div className='box'>
           <header>

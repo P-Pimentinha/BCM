@@ -61,6 +61,10 @@ const Wrapper = styled.article`
     grid-area: right;
     padding-left: 0.5em;
   }
+
+  .action {
+    padding-bottom: 0.5em;
+  }
   /* header {
     padding: 1rem 1.5rem;
     border-bottom: 1px solid var(--grey-100);
