@@ -86,7 +86,9 @@ const AddBar = () => {
             value={wifi}
             handleChange={handleJobInput}
           />
-
+        </div>
+        <hr />
+        <div className='form-center'>
           <FormRow
             labelText='Phone Number'
             type='text'
@@ -115,7 +117,10 @@ const AddBar = () => {
             value={phonePuk}
             handleChange={handleJobInput}
           />
+        </div>
+        <hr />
 
+        <div className='form-center'>
           <FormRow
             labelText='Unlock Tablet'
             type='text'
@@ -139,7 +144,9 @@ const AddBar = () => {
             value={tabletPuk}
             handleChange={handleJobInput}
           />
-
+        </div>
+        <hr />
+        <div className='form-center'>
           <FormRow
             labelText='Kasse User'
             type='text'
@@ -162,6 +169,9 @@ const AddBar = () => {
             value={notes}
             handleChange={handleJobInput}
           />
+        </div>
+        <hr />
+        <div className='form-center'>
           <div className='btn-container'>
             <button
               className='btn btn-block submit-btn'
