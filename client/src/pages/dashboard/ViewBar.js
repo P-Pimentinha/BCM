@@ -16,65 +16,94 @@ const ViewBar = () => {
     <Wrapper>
       <div class='container-grid'>
         <div className='box'>
-          <header>General Info</header>
-          <div className='content'>
+          <header>
+            <b>General Info</b>
+          </header>
+          <div className='left'>
             <p>
-              <b>Name :</b> {bar.name}
+              <b>Name : </b>
             </p>
             <p>
-              <b>Address :</b> {bar.address}
+              <b>Address : </b>
             </p>
             <p>
-              <b>Location :</b> {bar.location}
+              <b>Location : </b>
             </p>
             <p>
-              <b>WIFI :</b> {bar.wifi}
+              <b>WIFI : </b>
             </p>
+          </div>
+          <div className='right'>
+            <p> {bar.name}</p>
+            <p> {bar.address}</p>
+            <p> {bar.location}</p>
+            <p> {bar.wifi}</p>
           </div>
         </div>
 
         <div className='box'>
-          <header>Register</header>
-          <div className='content'>
+          <header>
+            <b>Register</b>
+          </header>
+          <div className='left'>
             <p>
-              <b>User :</b> {bar.kasseUser}
+              <b>User :</b>
             </p>
             <p>
-              <b>Password :</b> {bar.registerPassword}
+              <b>Password :</b>
             </p>
+          </div>
+          <div className='right'>
+            <p>{bar.kasseUser}</p>
+            <p>{bar.registerPassword}</p>
           </div>
         </div>
 
         <div className='box'>
-          <header>Phone</header>
-          <div className='content'>
+          <header>
+            <b>Phone</b>
+          </header>
+          <div className='left'>
             <p>
-              <b>Number :</b> {bar.phoneNumber}
+              <b>Number :</b>
             </p>
             <p>
-              <b>Unlock :</b> {bar.unlockPhoneCode}
+              <b>Unlock :</b>
             </p>
             <p>
-              <b>PIN :</b> {bar.phonePin}
+              <b>PIN :</b>
             </p>
             <p>
-              <b>PUK :</b> {bar.phonePuk}
+              <b>PUK :</b>
             </p>
+          </div>
+          <div className='right'>
+            <p>{bar.phoneNumber}</p>
+            <p>{bar.unlockPhoneCode}</p>
+            <p>{bar.phonePin}</p>
+            <p>{bar.phonePuk}</p>
           </div>
         </div>
 
         <div className='box'>
-          <header>Tablet</header>
-          <div className='content'>
+          <header>
+            <b>Tablet</b>
+          </header>
+          <div className='left'>
             <p>
-              <b>Unlock :</b> {bar.tabletUnlock}
+              <b>Unlock :</b>
             </p>
             <p>
-              <b>PIN :</b> {bar.tabletPin}
+              <b>PIN :</b>
             </p>
             <p>
-              <b>PUK :</b> {bar.tabletPuk}
+              <b>PUK :</b>
             </p>
+          </div>
+          <div className='right'>
+            <p>{bar.tabletUnlock}</p>
+            <p>{bar.tabletPin}</p>
+            <p>{bar.tabletPuk}</p>
           </div>
         </div>
       </div>

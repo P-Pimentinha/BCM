@@ -30,26 +30,36 @@ const Wrapper = styled.article`
   .box {
     background-color: white;
     color: black;
+
     /* border-radius: 5px; */
     /* border: 2px dodgerblue solid; */
     /* grid-template-columns: 200px 400px; */
     grid-template-rows: 20% auto;
+    /* grid-template-columns: 20% auto; */
     box-shadow: var(--shadow-2);
     border-radius: var(--borderRadius);
     display: grid;
-    justify-items: center;
 
     grid-template-areas:
       'header header'
-      'content content';
+      'left right';
   }
 
   header {
     grid-area: header;
+    text-align: center;
+    display: grid;
+    align-items: center;
   }
 
-  .content {
-    grid-area: content;
+  .left {
+    grid-area: left;
+    text-align: end;
+  }
+
+  .right {
+    grid-area: right;
+    padding-left: 0.5em;
   }
   /* header {
     padding: 1rem 1.5rem;

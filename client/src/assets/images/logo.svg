@@ -6,5 +6,5 @@
 <path fill="#2CB1BC" d="M9.861,0h29.7c5.467,0,9.9,4.477,9.9,10v30c0,5.523-4.433,10-9.9,10h-29.7c-5.468,0-9.9-4.477-9.9-10V10
 	C-0.039,4.477,4.394,0,9.861,0z"/>
 <text transform="matrix(1 0 0 1 12.7197 37.9873)" fill="#FFFFFF" font-family="'MyriadPro-Regular'" font-size="44.25">B</text>
-<text transform="matrix(1 0 0 1 60.3013 37.3896)" fill="#2CB1BC" font-family="'MyriadPro-Regular'" font-size="42.1599">Bctrl</text>
+<text transform="matrix(1 0 0 1 60.3018 37.3896)" fill="#2CB1BC" font-family="'MyriadPro-Regular'" font-size="42.1599">BCM</text>
 </svg>
