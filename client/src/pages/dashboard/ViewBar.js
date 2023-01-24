@@ -34,9 +34,9 @@ const ViewBar = () => {
             </p>
           </div>
           <div className='right'>
-            <p> {bar.name}</p>
-            <p> {bar.address}</p>
-            <p> {bar.location}</p>
+            <p> {bar.name || '---'}</p>
+            <p> {bar.address || '---'}</p>
+            <p> {bar.location || '---'}</p>
             <p> {bar.wifi}</p>
           </div>
         </div>
@@ -54,8 +54,8 @@ const ViewBar = () => {
             </p>
           </div>
           <div className='right'>
-            <p>{bar.kasseUser}</p>
-            <p>{bar.registerPassword}</p>
+            <p>{bar.kasseUser || '---'}</p>
+            <p>{bar.registerPassword || '---'}</p>
           </div>
         </div>
 
@@ -78,10 +78,10 @@ const ViewBar = () => {
             </p>
           </div>
           <div className='right'>
-            <p>{bar.phoneNumber}</p>
-            <p>{bar.unlockPhoneCode}</p>
-            <p>{bar.phonePin}</p>
-            <p>{bar.phonePuk}</p>
+            <p>{bar.phoneNumber || '---'}</p>
+            <p>{bar.unlockPhoneCode || '---'}</p>
+            <p>{bar.phonePin || '---'}</p>
+            <p>{bar.phonePuk || '---'}</p>
           </div>
         </div>
 
@@ -101,9 +101,9 @@ const ViewBar = () => {
             </p>
           </div>
           <div className='right'>
-            <p>{bar.tabletUnlock}</p>
-            <p>{bar.tabletPin}</p>
-            <p>{bar.tabletPuk}</p>
+            <p>{bar.tabletUnlock || '---'}</p>
+            <p>{bar.tabletPin || '---'}</p>
+            <p>{bar.tabletPuk || '---'}</p>
           </div>
         </div>
       </div>
