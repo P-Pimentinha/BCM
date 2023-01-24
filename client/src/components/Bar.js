@@ -9,19 +9,7 @@ import { useAppContext } from '../context/appContext';
 import Wrapper from '../assets/wrappers/Job';
 import BarInfo from './BarInfo';
 
-const Bar = ({
-  _id,
-  name,
-  location,
-  address,
-  phoneNumber,
-  notes,
-  unlockPhoneCode,
-  tabletCodes,
-  phonePin,
-  phonePuk,
-  kassenCodes,
-}) => {
+const Bar = ({ _id, name, location, address, phoneNumber }) => {
   const { setEditBar, deleteBar, getBar } = useAppContext();
   return (
     <Wrapper>

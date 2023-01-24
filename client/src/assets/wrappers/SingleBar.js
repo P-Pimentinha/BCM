@@ -65,6 +65,12 @@ const Wrapper = styled.article`
   .action {
     padding-bottom: 0.5em;
   }
+
+  .edit-btn {
+    color: var(--green-dark);
+    background: var(--green-light);
+    margin-right: 0.5rem;
+  }
   /* header {
     padding: 1rem 1.5rem;
     border-bottom: 1px solid var(--grey-100);
