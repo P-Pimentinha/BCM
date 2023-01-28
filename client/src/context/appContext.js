@@ -30,6 +30,9 @@ import {
   EDIT_BAR_ERROR,
   GET_BAR_BEGIN,
   GET_BAR_SUCCESS,
+  ADD_COFFEE_BEGIN,
+  ADD_COFFEE_SUCCESS,
+  ADD_COFFEE_ERROR,
 } from './action';
 
 const user = localStorage.getItem('user');
@@ -74,6 +77,8 @@ const initialState = {
   totalBars: 0,
   page: 1,
   numOfPages: 1,
+
+  kilos: 0,
 };
 
 const AppContext = React.createContext();
@@ -374,6 +379,28 @@ const AppProvider = ({ children }) => {
     }
   };
 
+  const addCoffee = async () => {
+    dispatch({ type: ADD_COFFEE_BEGIN });
+    try {
+      const { kilos, bar } = state;
+      await authFetch.post('/coffee', {
+        kilos,
+        barID: bar._id,
+      });
+      dispatch({
+        type: ADD_COFFEE_SUCCESS,
+      });
+      dispatch({ type: CLEAR_VALUES });
+    } catch (error) {
+      if (error.response.status === 401) return;
+      dispatch({
+        type: ADD_COFFEE_ERROR,
+        payload: { msg: error.response.data.msg },
+      });
+    }
+    clearAlert();
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -392,6 +419,7 @@ const AppProvider = ({ children }) => {
         deleteBar,
         editbar,
         getBar,
+        addCoffee,
       }}
     >
       {children}

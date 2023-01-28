@@ -26,6 +26,9 @@ import {
   EDIT_BAR_ERROR,
   GET_BAR_BEGIN,
   GET_BAR_SUCCESS,
+  ADD_COFFEE_BEGIN,
+  ADD_COFFEE_SUCCESS,
+  ADD_COFFEE_ERROR,
 } from './action';
 import { initialState } from './appContext';
 
@@ -294,6 +297,28 @@ const reducer = (state, action) => {
   }
 
   if (action.type === EDIT_BAR_ERROR) {
+    return {
+      ...state,
+      isLoading: false,
+      showAlert: true,
+      alertType: 'danger',
+      alertText: action.payload.msg,
+    };
+  }
+
+  if (action.type === ADD_COFFEE_BEGIN) {
+    return { ...state, isLoading: true };
+  }
+  if (action.type === ADD_COFFEE_SUCCESS) {
+    return {
+      ...state,
+      isLoading: false,
+      showAlert: true,
+      alertType: 'success',
+      alertText: 'Data Introduced Successfully!',
+    };
+  }
+  if (action.type === ADD_COFFEE_ERROR) {
     return {
       ...state,
       isLoading: false,

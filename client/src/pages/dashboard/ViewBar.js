@@ -6,7 +6,7 @@ import { Navigate } from 'react-router-dom';
 import Wrapper from '../../assets/wrappers/SingleBar';
 
 const ViewBar = () => {
-  const { bar, setEditBar, deleteBar } = useAppContext();
+  const { bar, setEditBar } = useAppContext();
 
   if (bar.length === 0) {
     return <Navigate to='/bars' />;
@@ -24,7 +24,7 @@ const ViewBar = () => {
         </Link>
       </div>
 
-      <div class='container-grid'>
+      <div className='container-grid'>
         <div className='box'>
           <header>
             <b>General Info</b>

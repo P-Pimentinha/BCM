@@ -5,6 +5,7 @@ import ProtectedRoute from './ProtectedRoute';
 import Bars from './Bars';
 import ViewBar from './ViewBar';
 import AddBar from './AddBar';
+import AddCoffee from './AddCoffee';
 
 export {
   WelcomePage,
@@ -14,4 +15,5 @@ export {
   Bars,
   AddBar,
   ViewBar,
+  AddCoffee,
 };
