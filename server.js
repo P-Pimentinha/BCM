@@ -18,6 +18,7 @@ import connectDB from './db/connect.js';
 //routers
 import authRouter from './routes/authRoutes.js';
 import barsRouter from './routes/barsRoutes.js';
+import coffeeRouter from './routes/coffeeRoutes.js';
 
 //middleware
 import notFoundMiddleware from './middleware/not-found.js';
@@ -38,6 +39,7 @@ app.use(mongoSanitize());
 
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/bars', authenticateUser, barsRouter);
+app.use('/api/v1/coffee', authenticateUser, coffeeRouter);
 
 // only when ready to deploy
 app.get('*', function (request, response) {
