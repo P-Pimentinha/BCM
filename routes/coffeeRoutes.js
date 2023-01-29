@@ -1,7 +1,7 @@
 import {
   createCoffee,
   getAllCoffeValues,
-} from '../controllers/coffeeController.js';
+} from '../controllers/coffeeConsController.js';
 import express from 'express';
 const router = express.Router();
 

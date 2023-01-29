@@ -1,22 +1,24 @@
 import { StatusCodes } from 'http-status-codes';
 
-import Coffee from '../models/Coffee.js';
+import CoffeeCons from '../models/CoffeeCons.js';
 import { BadRequestError, NotFoundError } from '../errors/index.js';
 import checkPermissions from '../utils/checkPermission.js';
 
 const createCoffee = async (req, res) => {
-  const { kilos, barID } = req.body;
+  const { kilos, barID, createdBy } = req.body;
 
-  if (!kilos && barID) {
+  if (!kilos && !barID) {
     throw new BadRequestError('Please Provide All Values!');
   }
 
-  const coffee = await Coffee.create(req.body);
+  req.body.createdBy = req.user.userId;
+
+  const coffee = await CoffeeCons.create(req.body);
   res.status(StatusCodes.CREATED).json({ coffee });
 };
 
 const getAllCoffeValues = async (req, res) => {
-  const coffee = await Coffee.find({ barID: req.body.barID });
+  const coffee = await CoffeeCons.find({ barID: req.body.barID });
 
   res.status(StatusCodes.OK).json({ coffee });
 };
