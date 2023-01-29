@@ -8,19 +8,7 @@ const AddCoffee = () => {
   const test = () => {
     console.log('hello');
   };
-  return (
-    <Wrapper>
-      {showAlert && <Alert />}
-      <button
-        className='btn btn-block submit-btn'
-        type='submit'
-        onClick={addCoffee}
-        disabled={isLoading}
-      >
-        test
-      </button>
-    </Wrapper>
-  );
+  return <Wrapper>{showAlert && <Alert />}</Wrapper>;
 };
 
 export default AddCoffee;

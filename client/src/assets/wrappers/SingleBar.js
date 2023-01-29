@@ -71,6 +71,11 @@ const Wrapper = styled.article`
     background: var(--green-light);
     margin-right: 0.5rem;
   }
+
+  .delete-btn {
+    color: var(--red-dark);
+    background: var(--red-light);
+  }
   /* header {
     padding: 1rem 1.5rem;
     border-bottom: 1px solid var(--grey-100);
@@ -176,10 +181,7 @@ const Wrapper = styled.article`
     margin-right: 0.5rem;
   }
 
-  .delete-btn {
-    color: var(--red-dark);
-    background: var(--red-light);
-  }
+  
   &:hover .actions {
     visibility: visible;
   } */

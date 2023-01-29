@@ -4,16 +4,14 @@ import { useAppContext } from '../../context/appContext';
 import { Link } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 import Wrapper from '../../assets/wrappers/SingleBar';
+import Loading from './../../components/Loading';
 
 const ViewBar = () => {
-  const { bar, setEditBar } = useAppContext();
-
-  if (bar.length === 0) {
-    return <Navigate to='/bars' />;
-  }
+  const { bar, setEditBar, isLoading, deleteBar } = useAppContext();
 
   return (
     <Wrapper>
+      {isLoading && <Loading center />}
       <div className='action'>
         <Link
           to='/addbar'
@@ -22,6 +20,13 @@ const ViewBar = () => {
         >
           Edit
         </Link>
+        <button
+          type='button'
+          className='btn delete-btn'
+          onClick={() => deleteBar(bar._id)}
+        >
+          Delete
+        </button>
       </div>
 
       <div className='container-grid'>

@@ -26,9 +26,12 @@ import {
   EDIT_BAR_ERROR,
   GET_BAR_BEGIN,
   GET_BAR_SUCCESS,
-  ADD_COFFEE_BEGIN,
-  ADD_COFFEE_SUCCESS,
-  ADD_COFFEE_ERROR,
+  ADD_COFFEECONS_BEGIN,
+  ADD_COFFEECONS_SUCCESS,
+  ADD_COFFEECONS_ERROR,
+  GET_COFFEECONS_BEGIN,
+  GET_ALL_COFFEECONS_SUCCESS,
+  GET_ALL_COFFEECONSCONS_ERROR,
 } from './action';
 import { initialState } from './appContext';
 
@@ -306,25 +309,36 @@ const reducer = (state, action) => {
     };
   }
 
-  if (action.type === ADD_COFFEE_BEGIN) {
+  if (action.type === ADD_COFFEECONS_BEGIN) {
     return { ...state, isLoading: true };
   }
-  if (action.type === ADD_COFFEE_SUCCESS) {
+  if (action.type === ADD_COFFEECONS_SUCCESS) {
     return {
       ...state,
       isLoading: false,
       showAlert: true,
       alertType: 'success',
-      alertText: 'Data Introduced Successfully!',
+      alertText: 'Data Sent Successfully!',
     };
   }
-  if (action.type === ADD_COFFEE_ERROR) {
+  if (action.type === ADD_COFFEECONS_ERROR) {
     return {
       ...state,
       isLoading: false,
       showAlert: true,
       alertType: 'danger',
       alertText: action.payload.msg,
+    };
+  }
+
+  if (action.type === GET_COFFEECONS_BEGIN) {
+    return { ...state, isLoading: true, showAlert: false };
+  }
+  if (action.type === GET_ALL_COFFEECONS_SUCCESS) {
+    return {
+      ...state,
+      isLoading: false,
+      allCoffeeCons: action.payload.coffee,
     };
   }
   throw new Error(`no such action : ${action.type}`);

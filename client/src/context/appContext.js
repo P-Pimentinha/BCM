@@ -30,9 +30,12 @@ import {
   EDIT_BAR_ERROR,
   GET_BAR_BEGIN,
   GET_BAR_SUCCESS,
-  ADD_COFFEE_BEGIN,
-  ADD_COFFEE_SUCCESS,
-  ADD_COFFEE_ERROR,
+  ADD_COFFEECONS_BEGIN,
+  ADD_COFFEECONS_SUCCESS,
+  ADD_COFFEECONS_ERROR,
+  GET_COFFEECONS_BEGIN,
+  GET_ALL_COFFEECONS_SUCCESS,
+  GET_ALL_COFFEECONSCONS_ERROR,
 } from './action';
 
 const user = localStorage.getItem('user');
@@ -79,6 +82,8 @@ const initialState = {
   numOfPages: 1,
 
   kilos: 0,
+
+  allCoffeeCons: [],
 };
 
 const AppContext = React.createContext();
@@ -302,7 +307,7 @@ const AppProvider = ({ children }) => {
     try {
       const { data } = await authFetch(url);
       const { bar } = data;
-      console.log(bar._id);
+
       dispatch({
         type: GET_BAR_SUCCESS,
         payload: {
@@ -380,7 +385,7 @@ const AppProvider = ({ children }) => {
   };
 
   const addCoffee = async () => {
-    dispatch({ type: ADD_COFFEE_BEGIN });
+    dispatch({ type: ADD_COFFEECONS_BEGIN });
     try {
       const { kilos, bar } = state;
       await authFetch.post('/coffee', {
@@ -388,15 +393,36 @@ const AppProvider = ({ children }) => {
         barID: bar._id,
       });
       dispatch({
-        type: ADD_COFFEE_SUCCESS,
+        type: ADD_COFFEECONS_SUCCESS,
       });
       dispatch({ type: CLEAR_VALUES });
     } catch (error) {
       if (error.response.status === 401) return;
       dispatch({
-        type: ADD_COFFEE_ERROR,
+        type: ADD_COFFEECONS_ERROR,
         payload: { msg: error.response.data.msg },
       });
+    }
+    clearAlert();
+  };
+
+  const getAllCoffeeCons = async () => {
+    let url = `/coffee`;
+    dispatch({ type: GET_COFFEECONS_BEGIN });
+
+    try {
+      const { data } = await authFetch(url);
+      const { coffee } = data;
+
+      dispatch({
+        type: GET_ALL_COFFEECONS_SUCCESS,
+        payload: {
+          coffee,
+        },
+      });
+    } catch (error) {
+      console.log(error.response);
+      logoutUser();
     }
     clearAlert();
   };
@@ -420,6 +446,7 @@ const AppProvider = ({ children }) => {
         editbar,
         getBar,
         addCoffee,
+        getAllCoffeeCons,
       }}
     >
       {children}
