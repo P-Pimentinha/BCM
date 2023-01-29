@@ -18,9 +18,20 @@ const createCoffee = async (req, res) => {
 };
 
 const getAllCoffeValues = async (req, res) => {
-  const coffee = await CoffeeCons.find({ barID: req.body.barID });
-
+  const coffee = await CoffeeCons.find({ createdBy: req.user.userId });
+  if (coffee[0]) {
+    checkPermissions(req.user, coffee[0].createdBy);
+  }
   res.status(StatusCodes.OK).json({ coffee });
 };
 
-export { createCoffee, getAllCoffeValues };
+//edit
+const getSingleBarCoffeValues = async (req, res) => {
+  const coffee = await CoffeeCons.find({ barID: req.params.barID });
+  if (coffee[0]) {
+    checkPermissions(req.user, coffee[0].createdBy);
+  }
+  res.status(StatusCodes.OK).json({ coffee });
+};
+
+export { createCoffee, getAllCoffeValues, getSingleBarCoffeValues };
