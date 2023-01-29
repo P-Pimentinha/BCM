@@ -1,4 +1,5 @@
 import { useReducer, useContext } from 'react';
+import { Navigate } from 'react-router-dom';
 import React from 'react';
 import axios from 'axios';
 import reducer from './reducer';
@@ -378,6 +379,7 @@ const AppProvider = ({ children }) => {
 
     try {
       await authFetch.delete(`/bars/${barId}`);
+
       getBars();
     } catch (error) {
       logoutUser();

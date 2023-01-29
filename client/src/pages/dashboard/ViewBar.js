@@ -2,12 +2,19 @@ import React from 'react';
 
 import { useAppContext } from '../../context/appContext';
 import { Link } from 'react-router-dom';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Wrapper from '../../assets/wrappers/SingleBar';
 import Loading from './../../components/Loading';
 
 const ViewBar = () => {
   const { bar, setEditBar, isLoading, deleteBar } = useAppContext();
+
+  const navigate = useNavigate();
+
+  const delBar = () => {
+    deleteBar(bar._id);
+    navigate('/bars');
+  };
 
   return (
     <Wrapper>
@@ -23,12 +30,11 @@ const ViewBar = () => {
         <button
           type='button'
           className='btn delete-btn'
-          onClick={() => deleteBar(bar._id)}
+          onClick={() => delBar()}
         >
           Delete
         </button>
       </div>
-
       <div className='container-grid'>
         <div className='box'>
           <header>
@@ -122,7 +128,6 @@ const ViewBar = () => {
           </div>
         </div>
       </div>
-
       {/* <div className='container'>
         <div>
           <p>{bar._id}</p>
