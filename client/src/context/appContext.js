@@ -386,7 +386,7 @@ const AppProvider = ({ children }) => {
     }
   };
 
-  const addCoffee = async () => {
+  const addCoffeeCons = async () => {
     dispatch({ type: ADD_COFFEECONS_BEGIN });
     try {
       const { kilos, bar } = state;
@@ -447,7 +447,7 @@ const AppProvider = ({ children }) => {
         deleteBar,
         editbar,
         getBar,
-        addCoffee,
+        addCoffeeCons,
         getAllCoffeeCons,
       }}
     >

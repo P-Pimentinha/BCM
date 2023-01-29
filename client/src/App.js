@@ -8,7 +8,7 @@ import {
   Bars,
   AddBar,
   ViewBar,
-  AddCoffee,
+  DailyTasks,
 } from './pages/dashboard';
 
 function App() {
@@ -29,7 +29,7 @@ function App() {
             <Route path='bars' element={<Bars />}></Route>
             <Route path='viewBar' element={<ViewBar />}></Route>
             <Route path='addbar' element={<AddBar />}></Route>
-            <Route path='addcoffee' element={<AddCoffee />}></Route>
+            <Route path='dailytasks' element={<DailyTasks />}></Route>
           </Route>
           <Route path='/register' element={<Register />}></Route>
           <Route path='/landing' element={<Landing />}></Route>

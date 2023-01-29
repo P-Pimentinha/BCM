@@ -35,11 +35,11 @@ const Bar = ({ _id, name, location, address, phoneNumber }) => {
         <footer>
           <div className='action'>
             <Link
-              to='/addbar'
-              onClick={() => setEditBar(_id)}
+              to='/dailytasks'
+              onClick={() => getBar(_id)}
               className='btn edit-btn'
             >
-              Edit
+              Consumed
             </Link>
           </div>
         </footer>

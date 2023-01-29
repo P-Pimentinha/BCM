@@ -186,6 +186,7 @@ const reducer = (state, action) => {
       tabletPuk: '',
       kasseUser: '',
       registerPassword: '',
+      kilos: 0,
     };
 
     return { ...state, ...initialState };

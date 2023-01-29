@@ -8,6 +8,7 @@ import BarsContainer from './BarsContainer';
 import SearchContainer from './SearchContainer';
 import Bar from './Bar';
 import BarInfo from './BarInfo';
+import AddCoffeeCons from './AddCoffeeCons';
 
 export {
   Logo,
@@ -20,4 +21,5 @@ export {
   SearchContainer,
   Bar,
   BarInfo,
+  AddCoffeeCons,
 };
