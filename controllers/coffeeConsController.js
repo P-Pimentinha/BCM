@@ -18,7 +18,10 @@ const createCoffee = async (req, res) => {
 };
 
 const getAllCoffeValues = async (req, res) => {
-  const coffee = await CoffeeCons.find({ createdBy: req.user.userId });
+  const coffee = await CoffeeCons.find({ createdBy: req.user.userId }).populate(
+    'barID',
+    'name'
+  );
   if (coffee[0]) {
     checkPermissions(req.user, coffee[0].createdBy);
   }

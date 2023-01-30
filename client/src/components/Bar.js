@@ -5,7 +5,7 @@ import { useAppContext } from '../context/appContext';
 import Wrapper from '../assets/wrappers/Job';
 
 const Bar = ({ _id, name, location, address, phoneNumber }) => {
-  const { setEditBar, deleteBar, getBar } = useAppContext();
+  const { getBar } = useAppContext();
   return (
     <Wrapper>
       <header>
@@ -33,7 +33,7 @@ const Bar = ({ _id, name, location, address, phoneNumber }) => {
         </div> */}
 
         <footer>
-          {/* <div className='action'>
+          <div className='action'>
             <Link
               to='/dailytasks'
               onClick={() => getBar(_id)}
@@ -41,7 +41,7 @@ const Bar = ({ _id, name, location, address, phoneNumber }) => {
             >
               Daily Tasks
             </Link>
-          </div> */}
+          </div>
         </footer>
       </div>
     </Wrapper>
