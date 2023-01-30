@@ -33,15 +33,15 @@ const Bar = ({ _id, name, location, address, phoneNumber }) => {
         </div> */}
 
         <footer>
-          <div className='action'>
+          {/* <div className='action'>
             <Link
               to='/dailytasks'
               onClick={() => getBar(_id)}
               className='btn edit-btn'
             >
-              Consumed
+              Daily Tasks
             </Link>
-          </div>
+          </div> */}
         </footer>
       </div>
     </Wrapper>

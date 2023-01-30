@@ -12,8 +12,12 @@ const ViewBar = () => {
   const navigate = useNavigate();
 
   const delBar = () => {
-    deleteBar(bar._id);
-    navigate('/bars');
+    let answer = window.confirm('Delete?');
+    if (answer) {
+      deleteBar(bar._id);
+      navigate('/bars');
+    }
+    return;
   };
 
   return (

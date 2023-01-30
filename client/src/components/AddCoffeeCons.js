@@ -34,7 +34,7 @@ const AddCoffeeCons = () => {
   return (
     <Wrapper>
       <form className='form'>
-        <h3>Insert Consumed Coffee in kilos</h3>
+        <h3>Coffee Consumed</h3>
         {showAlert && <Alert />}
         <div className='form-center'>
           <FormRow
@@ -44,18 +44,15 @@ const AddCoffeeCons = () => {
             handleChange={handleInput}
           />
         </div>
-        <div className='form-center'>
-          <div className='btn-container'>
-            <button
-              className='btn btn-block submit-btn'
-              type='submit'
-              onClick={handleSubmit}
-              disabled={isLoading}
-            >
-              submit
-            </button>
-          </div>
-        </div>
+
+        <button
+          className='btn edit-btn'
+          type='submit'
+          onClick={handleSubmit}
+          disabled={isLoading}
+        >
+          submit
+        </button>
       </form>
     </Wrapper>
   );
