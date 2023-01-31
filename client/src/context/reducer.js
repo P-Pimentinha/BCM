@@ -340,6 +340,7 @@ const reducer = (state, action) => {
       ...state,
       isLoading: false,
       allCoffeeCons: action.payload.coffee,
+      allBarNames: action.payload.barNames,
     };
   }
   throw new Error(`no such action : ${action.type}`);

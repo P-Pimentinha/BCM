@@ -1,23 +1,36 @@
 import React from 'react';
-import { useEffect } from 'react';
+import { SingleBarCoffeeCons } from '../../components';
 import { useAppContext } from '../../context/appContext';
+import Loading from '../../components/Loading';
+import { useEffect } from 'react';
 
 const WelcomePage = () => {
-  const { getAllCoffeeCons, allCoffeeCons } = useAppContext();
+  const { getAllCoffeeCons, allCoffeeCons, isLoading, allBarNames } =
+    useAppContext();
 
   useEffect(() => {
     getAllCoffeeCons();
   }, []);
 
-  function test() {
-    let totalKilos = 0;
-    for (let i = 0; i < allCoffeeCons.length; i++) {
-      totalKilos += allCoffeeCons[i].kilos;
-    }
-    return totalKilos;
+  if (isLoading) {
+    return <Loading center />;
   }
 
-  return <div>Total Coffee Consumed: {test()}</div>;
+  return (
+    <div>
+      {allBarNames.map((coffee) => {
+        return (
+          <SingleBarCoffeeCons
+            key={coffee._id}
+            barName={allBarNames[1]}
+            arr={allCoffeeCons}
+          />
+        );
+      })}
+    </div>
+  );
+
+  // return <SingleBarCoffeeCons barName={'MMM'} />;
 };
 
 export default WelcomePage;

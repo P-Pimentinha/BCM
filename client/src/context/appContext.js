@@ -85,6 +85,8 @@ const initialState = {
   kilos: 0,
 
   allCoffeeCons: [],
+
+  allBarNames: [],
 };
 
 const AppContext = React.createContext();
@@ -415,11 +417,19 @@ const AppProvider = ({ children }) => {
     try {
       const { data } = await authFetch(url);
       const { coffee } = data;
+      let barNames = [];
+
+      for (let i = 0; i < coffee.length; i++) {
+        if (!barNames.includes(coffee[i].barID.name)) {
+          barNames.push(coffee[i].barID.name);
+        }
+      }
 
       dispatch({
         type: GET_ALL_COFFEECONS_SUCCESS,
         payload: {
           coffee,
+          barNames,
         },
       });
     } catch (error) {
