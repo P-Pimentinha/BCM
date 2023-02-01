@@ -418,15 +418,26 @@ const AppProvider = ({ children }) => {
       const { data } = await authFetch(url);
       const { coffee } = data;
       let barNames = [];
+      let x = []; //help variable to store names as Sting in array
 
       for (let i = 0; i < coffee.length; i++) {
-        if (!barNames.includes({ id: coffee[i].barID.name })) {
+        if (!x.includes(coffee[i].barID.name)) {
+          x.push(coffee[i].barID.name);
           barNames.push({
             id: coffee[i]._id,
             name: coffee[i].barID.name,
           });
         }
       }
+
+      // for (let i = 0; i < coffee.length; i++) {
+      //   if (!barNames.includes({ id: coffee[i].barID.name })) {
+      //     barNames.push({
+      //       id: coffee[i]._id,
+      //       name: coffee[i].barID.name,
+      //     });
+      //   }
+      // }
 
       dispatch({
         type: GET_ALL_COFFEECONS_SUCCESS,
