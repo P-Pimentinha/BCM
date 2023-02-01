@@ -10,6 +10,7 @@ const user = {
   active: true,
 };
 
-for (const key in user) {
-  console.log(`${key}: ${user[key]}`);
-}
+const x = [];
+
+x.push({ name: 'Pedro', age: 32 });
+console.log(x[0].name);

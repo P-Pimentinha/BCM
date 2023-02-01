@@ -420,8 +420,11 @@ const AppProvider = ({ children }) => {
       let barNames = [];
 
       for (let i = 0; i < coffee.length; i++) {
-        if (!barNames.includes(coffee[i].barID.name)) {
-          barNames.push(coffee[i].barID.name);
+        if (!barNames.includes({ id: coffee[i].barID.name })) {
+          barNames.push({
+            id: coffee[i]._id,
+            name: coffee[i].barID.name,
+          });
         }
       }
 

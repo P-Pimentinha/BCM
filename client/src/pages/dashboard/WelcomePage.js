@@ -21,8 +21,8 @@ const WelcomePage = () => {
       {allBarNames.map((coffee) => {
         return (
           <SingleBarCoffeeCons
-            key={coffee._id}
-            barName={allBarNames[1]}
+            key={coffee.id}
+            barName={coffee.name}
             arr={allCoffeeCons}
           />
         );
