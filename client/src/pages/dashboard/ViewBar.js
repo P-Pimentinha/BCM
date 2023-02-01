@@ -68,7 +68,7 @@ const ViewBar = () => {
 
         <div className='box'>
           <header>
-            <b>Register</b>
+            <b>Cash Register</b>
           </header>
           <div className='left'>
             <p>

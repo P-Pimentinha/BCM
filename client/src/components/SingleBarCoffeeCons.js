@@ -1,4 +1,5 @@
 import React from 'react';
+import Wrapper from '../assets/wrappers/SinbleBarCoffeeCons';
 
 const SingleBarCoffeeCons = ({ barName, arr }) => {
   let totalKiloss = barTotalKilos(barName, arr);
@@ -13,11 +14,11 @@ const SingleBarCoffeeCons = ({ barName, arr }) => {
   }
 
   return (
-    <div>
-      <div>
+    <Wrapper>
+      <div className='box'>
         {barName} : {totalKiloss}
       </div>
-    </div>
+    </Wrapper>
   );
 };
 

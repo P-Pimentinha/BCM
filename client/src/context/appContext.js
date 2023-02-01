@@ -430,15 +430,6 @@ const AppProvider = ({ children }) => {
         }
       }
 
-      // for (let i = 0; i < coffee.length; i++) {
-      //   if (!barNames.includes({ id: coffee[i].barID.name })) {
-      //     barNames.push({
-      //       id: coffee[i]._id,
-      //       name: coffee[i].barID.name,
-      //     });
-      //   }
-      // }
-
       dispatch({
         type: GET_ALL_COFFEECONS_SUCCESS,
         payload: {
