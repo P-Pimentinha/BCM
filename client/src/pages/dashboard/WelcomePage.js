@@ -17,22 +17,7 @@ const WelcomePage = () => {
     return <Loading center />;
   }
 
-  return (
-    <Wrapper>
-      <h3 className='header'>Coffee Consumed: (KG)</h3>
-      <div className='container-grid'>
-        {allBarNames.map((coffee) => {
-          return (
-            <SingleBarCoffeeCons
-              key={coffee.id}
-              barName={coffee.name}
-              arr={allCoffeeCons}
-            />
-          );
-        })}
-      </div>
-    </Wrapper>
-  );
+  return <Wrapper></Wrapper>;
 
   // return <SingleBarCoffeeCons barName={'MMM'} />;
 };
