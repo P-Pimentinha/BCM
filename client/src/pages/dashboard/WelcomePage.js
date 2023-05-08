@@ -1,17 +1,12 @@
 import React from 'react';
-import { SingleBarCoffeeCons } from '../../components';
+
 import { useAppContext } from '../../context/appContext';
 import Loading from '../../components/Loading';
-import { useEffect } from 'react';
+
 import Wrapper from '../../assets/wrappers/SinbleBarCoffeeCons';
 
 const WelcomePage = () => {
-  const { getAllCoffeeCons, allCoffeeCons, isLoading, allBarNames } =
-    useAppContext();
-
-  useEffect(() => {
-    getAllCoffeeCons();
-  }, []);
+  const { isLoading } = useAppContext();
 
   if (isLoading) {
     return <Loading center />;
