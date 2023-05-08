@@ -55,14 +55,14 @@ const ViewBar = () => {
               <b>Location : </b>
             </p>
             <p>
-              <b>WIFI : </b>
+              <b>WiFi Key : </b>
             </p>
           </div>
           <div className='right'>
             <p> {bar.name || '---'}</p>
             <p> {bar.address || '---'}</p>
             <p> {bar.location || '---'}</p>
-            <p> {bar.wifi}</p>
+            <p> {bar.wifi || '---'}</p>
           </div>
         </div>
 

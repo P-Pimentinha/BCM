@@ -148,7 +148,7 @@ const AddBar = () => {
         <hr />
         <div className='form-center'>
           <FormRow
-            labelText='Kasse User'
+            labelText='Cash Register User'
             type='text'
             name='kasseUser'
             value={kasseUser}
@@ -156,7 +156,7 @@ const AddBar = () => {
           />
 
           <FormRow
-            labelText='Register Password'
+            labelText='Cash Register Password'
             type='text'
             name='registerPassword'
             value={registerPassword}
